@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -31,5 +31,11 @@ module PostBootstrapApp2
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # ***** 以下を追加 *****
+    config.i18n.default_locale = :ja
+    # ***** 以上を追加 *****
+    # Settings in config/environments/* take precedence over those specified here.
+
   end
 end
