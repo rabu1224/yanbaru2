@@ -24,3 +24,42 @@ div.field_with_errors {
 
   // ***** 以上を追加 *****
 }
+
+.base-container {
+  @extend .container-fluid !optional;
+  max-width: var(--breakpoint-lg);
+  padding: 30px 15px;
+}
+
+// ***** 以下を追加 *****
+// テーブル
+th,
+td {
+  vertical-align: middle !important;
+}
+
+.break-word {
+  word-break: break-word;
+}
+
+// フラッシュ
+
+.alert-notice {
+  @extend .alert-success !optional;
+}
+
+.alert-alert {
+  @extend .alert-danger !optional;
+}
+
+.field_with_errors {
+  display: contents;
+
+  // ***** 以下を修正 *****
+  input,
+  textarea {
+    @extend .is-invalid !optional;
+  }
+
+  // ***** 以上を修正 *****
+}

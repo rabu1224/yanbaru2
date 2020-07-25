@@ -22,3 +22,7 @@ div.field_with_errors input {
 }
 
 /*# sourceMappingURL=application.css.map */
+
+body {
+  padding-top: 56px;
+}
