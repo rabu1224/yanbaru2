@@ -15,22 +15,24 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create!(post_params)
-    redirect_to post
+    edirect_to post, notice: "投稿しました"
   end
 
   def edit
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update!(post_params)
-    redirect_to post
+    @post.update!(post_params)
+  # ***** 次を編集 *****
+    redirect_to @post, notice: "更新しました"
+
   end
 
   def destroy
     # ***** 修正(@を追加しているので注意！) *****
     @post.destroy!
-    redirect_to @post
+    # ***** 次を編集 *****
+    redirect_to @post, alert: "削除しました"
   end
 
   private
