@@ -19,9 +19,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    # ***** 修正(@を追加しているので注意！) *****
-    @post.update!(post_params)
-    redirect_to @post
   end
 
   def update
