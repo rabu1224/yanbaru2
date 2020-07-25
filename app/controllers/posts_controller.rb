@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create!(post_params)
-    edirect_to post, notice: "投稿しました"
+    redirect_to post, notice: "投稿しました"
   end
 
   def edit
