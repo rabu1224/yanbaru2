@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[show edit update destroy]
+
   def index
     @posts = Post.order(id: :asc)
   end
 
   def show
-    @post = Post.find(params[:id])
+    # ***** 修正 ****
   end
 
   def new
@@ -17,7 +19,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    # ***** 修正(@を追加しているので注意！) *****
+    @post.update!(post_params)
+    redirect_to @post
   end
 
   def update
@@ -27,12 +31,19 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy!
-    redirect_to post
+    # ***** 修正(@を追加しているので注意！) *****
+    @post.destroy!
+    redirect_to @post
   end
 
   private
+
+  # ***** 以下を追加 *****
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  # ***** 以上を追加 *****
 
   def post_params
     params.require(:post).permit(:title, :content)
